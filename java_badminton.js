@@ -1,5 +1,3 @@
-
-
 let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
 
 
@@ -15,7 +13,29 @@ class joueurs {
 let joueur1 = new joueurs ('James', 'Hendrix','P10','male')
 let joueur2 = new joueurs ('Harry', 'Poter', 'D8', 'male')
 
-console.log(joueur1.classement[3]);
+
+const set1PlayerA = document.querySelector('.set1PlayerA');
+let set1A = Number(set1PlayerA.value);
+
+
+console.log(set1A);
+
+
+
+
+
+let win = document.getElementById('winner');
+win.textContent = 'gagné';
+
+
+
+
+
+
+
+
+
+
 
 
 
