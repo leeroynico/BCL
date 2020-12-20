@@ -5,32 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAD lens</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boostrap_ressources/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap_ressources/bootstrap.min.css">
 
     
 </head>
-<body>
-
-  
-<label for="premier">premier nombre</label>   
-<input type="text" id="premierNombre" class="premier" style="width: 200px;" value="">
-
-<label for="deuxieme">deuxieme nombre</label>   
-<input type="text" id="deuxiemeNombre" class="deuxieme">
-
-<button id="bouton" type="button">addition</button>
-
-<label for="resultat">résultat</label>   
-<input type="text" id="resultat" class="resultat">
-
-
-<h1>Championnat interne du Badminton Club Lensois</h1>
-<P></P>
-<h2>règles:</h2>
+<body class="container fluid">
+<header>
+  <div class="card text-center mt-3 mb-3 ml-5 mr-5">
+    <div class="card-header">
+      Championnat interne du Badminton Club Lensois
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-left">règles</h5>
+      <p class="card-text text-left">tu joues, tu gagnes, tu perds</p>
+      <a href="#" class="btn btn-primary">s'inscire</a>
+    </div>
+  </div>
+</header>
 
 
+<form action="#" class="form-group border" >
+  <div class="container">
+    <div class="row g-1">
+        <p class="text-center">rentres tes résultats du match : </p>
+        <p class="col-2">joueur 1</p>
+        <div class="form-floating col-2">
+          <input type="text" ID="set1PlayerA" class="form-control" >
+          <label for="set1PlayerA">set 1</label>
+        </div>
+        <div class="form-floating col-2">
+          <input type="text" ID="set2PlayerA" class="form-control" >
+          <label for="set2PlayerA">set 2</label>
+        </div>
+        <div class="form-floating col-2">
+          <input type="text" ID="set3PlayerA" class="form-control" >
+          <label for="set3PlayerA">set 3</label>
+        </div>
+    </div>
+    <div class="row g-1">
+        <p class="col-2">joueur 2</p>
+        <div class="form-floating col-2">
+          <input type="text" ID="set1PlayerB" class="form-control" >
+          <label for="set1PlayerA">set 1</label>
+        </div>
+        <div class="form-floating col-2">
+          <input type="text" ID="set2PlayerB" class="form-control" >
+          <label for="set2PlayerA">set 2</label>
+        </div>
+        <div class="form-floating col-2">
+          <input type="text" ID="set3PlayerB" class="form-control" >
+          <label for="set3PlayerA">set 3</label>
+        </div>
+      </div>
+  </div>
+</form>
 
 
+<!--  
  <form action="get" class="scorematch"> 
     <label for="set1PlayerA">joueur A</label>
     <input type="text" id="set1PlayerA" class="set1PlayerA">
@@ -47,11 +78,11 @@
     <label for="set3playeyB">set 3</label>
     <input type="text"  id="set3playeyB" class="set3playeyB"> 
 </form>   
-   
+
 
 <p id="winner">salut à tous</p>
 
-
+-->  
 </body>
 <script src="java_badminton.js"></script> 
 <script src="bootstrap_ressources/bootstrap.min.js"></script>
