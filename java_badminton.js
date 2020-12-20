@@ -1,4 +1,4 @@
-let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
+/* let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
 
 
 class joueurs {
@@ -13,24 +13,28 @@ class joueurs {
 let joueur1 = new joueurs ('James', 'Hendrix','P10','male')
 let joueur2 = new joueurs ('Harry', 'Poter', 'D8', 'male')
 
-
-const set1PlayerA = document.querySelector('.set1PlayerA');
 let set1A = Number(set1PlayerA.value);
-
-
-console.log(set1A);
-
-
-
-
 
 let win = document.getElementById('winner');
 win.textContent = 'gagné';
 
+document.getElementById('bouton').onclick = function hello () {
+    alert('coucou');
+}
+*/
 
 
+let premierNombre = document.getElementById('premierNombre').value;
+
+let numeroUn = parseFloat(premierNombre) ;
 
 
+document.getElementById('bouton').onclick = function calcul(){
+    
+    alert (numeroUn);
+    
+}
+    
 
 
 

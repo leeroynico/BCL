@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BAD lens</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boostrap_ressources/bootstrap.min.css">
 
     
 </head>
 <body>
-<h1>Championnat interne de Badminton</h1>
 
-<div class="scoreMatch">
+  
+<label for="premier">premier nombre</label>   
+<input type="text" id="premierNombre" class="premier" style="width: 200px;" value="">
+
+<label for="deuxieme">deuxieme nombre</label>   
+<input type="text" id="deuxiemeNombre" class="deuxieme">
+
+<button id="bouton" type="button">addition</button>
+
+<label for="resultat">résultat</label>   
+<input type="text" id="resultat" class="resultat">
+
+
+<h1>Championnat interne du Badminton Club Lensois</h1>
+<P></P>
+<h2>règles:</h2>
+
+
+
+
+ <form action="get" class="scorematch"> 
     <label for="set1PlayerA">joueur A</label>
     <input type="text" id="set1PlayerA" class="set1PlayerA">
     <input type="submit" value="Submitscore" class="scoresubmit">
     
- <!--   <label for="set1PlayerB">joueur B</label>
+   <label for="set1PlayerB">joueur B</label>
     <input type="text"  id="set1PlayerB" class="set1PlayerB">
     <label for="set2playerA">set 2</label>
     <input type="text"  id="set2playerA" class="set2playerA">
@@ -25,17 +45,15 @@
     <label for="set3playerA">set 3</label>
     <input type="text"  id="set3playerA" class="set3playerA">
     <label for="set3playeyB">set 3</label>
-    <input type="text"  id="set3playeyB" class="set3playeyB"> -->
-
+    <input type="text"  id="set3playeyB" class="set3playeyB"> 
+</form>   
    
-</div>
-
-
 
 <p id="winner">salut à tous</p>
 
 
-
-<script src="java_badminton.js" defer></script> 
 </body>
+<script src="java_badminton.js"></script> 
+<script src="bootstrap_ressources/bootstrap.min.js"></script>
+<script src="bootstrap_ressources/bootstrap.bundle.min.js"></script>
 </html>
