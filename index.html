@@ -11,20 +11,49 @@
 </head>
 <body class="container fluid">
 <header>
-  <div class="card text-center mt-3 mb-3 ml-5 mr-5">
-    <div class="card-header">
-      Championnat interne du Badminton Club Lensois
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h1>championnat interne du BCL</h1>
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         Objectifs
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          L’objectif étant de pimenter les entraînements, récompenser les plus assidu, mais surtout de permettre le brassage des joueurs selon leur niveau.
+       </div>
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title text-left">règles</h5>
-      <p class="card-text text-left">tu joues, tu gagnes, tu perds</p>
-      <a href="#" class="btn btn-primary">s'inscire</a>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Règles
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Lorsqu’un joueur décide de rencontrer un autre joueur, il aura un nombre de points d’avance il sera relatif à la différence des deux classement Fédé des joueurs (handicap).
+          Même principe en double (avec une moyenne de points par paire de joueurs) </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Le calcul des points
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+         Si tu gagnes tu marques des points, si tu perds t'en marque moins.
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 
-<form action="#" class="form-group border" >
+<form action="#" class="form-group border mb-5 mt-2" >
   <div class="container">
     <div class="row g-1">
         <p class="text-center">rentres tes résultats du match : </p>
@@ -82,9 +111,10 @@
 
 <p id="winner">salut à tous</p>
 
--->  
-</body>
+--> 
 <script src="java_badminton.js"></script> 
 <script src="bootstrap_ressources/bootstrap.min.js"></script>
-<script src="bootstrap_ressources/bootstrap.bundle.min.js"></script>
+<script src="bootstrap_ressources/bootstrap.bundle.min.js"></script> 
+</body>
+
 </html>
