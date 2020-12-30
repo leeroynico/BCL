@@ -1,3 +1,5 @@
 pb bouton marge 
 
 pb troisième set 
+
+ alert qui revient 2 fois si on se trompe. 

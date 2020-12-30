@@ -30,7 +30,8 @@ function match(){
             }
         }
     winSet (set1PlayerA,set1PlayerB);
-    winSet (set2PlayerA,set2PlayerB);
+    winSet (set2PlayerA,set2PlayerB); 
+  
  
     // si 2-0, pas de 3éme set
         if(nombreSetJoueurA ===1 && nombreSetJoueurA ===1){
@@ -42,13 +43,11 @@ function match(){
         else {
             alert ('joueur A a gagné')
         };
-  
-   
-
 }
 button.addEventListener('click', match)
 
-/*
+
+// création des joueurs du championnat
 class joueurs {
     constructor(firstname,name,classement,genre){
         this.name = name,
@@ -62,5 +61,10 @@ let joueur2 = new joueurs ('Harry', 'Poter', 'D8', 'male')
 
 let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
 
-*/
 
+
+//renvoie des joueurs dans le HTML 
+function generateListe {
+    let body = document.getElementsByTagName("body")[0];
+    
+}
