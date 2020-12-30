@@ -48,23 +48,44 @@ button.addEventListener('click', match)
 
 
 // création des joueurs du championnat
+let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1'];
 class joueurs {
     constructor(firstname,name,classement,genre){
         this.name = name,
-        this.fistrname = firstname,
+        this.firstname = firstname,
         this.classement = classement,
         this.genre = genre
     }
 }
-let joueur1 = new joueurs ('James', 'Hendrix','P10','male')
-let joueur2 = new joueurs ('Harry', 'Poter', 'D8', 'male')
-
-let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
+let joueur1 = new joueurs ('James', 'Hendrix',classement[3],'male')
+let joueur2 = new joueurs ('Harry', 'Poter', classement[5], 'male')
 
 
 
-//renvoie des joueurs dans le HTML 
-function generateListe {
-    let body = document.getElementsByTagName("body")[0];
-    
+
+//renvoie les joueurs dans le HTML
+let newjoueur1 = document.getElementById('listejoueur1');
+let options = ['--Choisissez le joueur 1--', joueur1.firstname+' '+ joueur1.classement , joueur2.firstname+' '+ joueur2.classement];
+options.forEach(function(element,key) {
+    newjoueur1[key] = new Option(element,key);
+});
+
+let newjoueur2 = document.getElementById('listejoueur2');
+let options2 = ['--Choisissez le joueur 2--', joueur1.firstname+' '+ joueur1.classement , joueur2.firstname+' '+ joueur2.classement];
+options2.forEach(function(element,key) {
+    newjoueur2[key] = new Option(element,key);
+});
+
+//calcul handicap 
+
+let handicapResultat =  document.getElementById("handicap");
+let btnhandicap = document.getElementById('boutonhandicap')
+function calculHandicap (){
+    let handicap = classement.indexOf(joueur1.classement) - classement.indexOf(joueur2.classement);
+    handicapResultat.innerHTML = Math.abs(handicap*3);
 }
+
+btnhandicap.addEventListener('click',calculHandicap);
+
+
+
