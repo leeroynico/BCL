@@ -13,7 +13,7 @@
 <header>
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">
-      <h1>championnat interne du BCL</h1>
+      <h1 class="d-flex justify-content-center">championnat interne du BCL</h1>
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
          Objectifs
@@ -21,7 +21,7 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          L’objectif étant de pimenter les entraînements, récompenser les plus assidu, mais surtout de permettre le brassage des joueurs selon leur niveau.
+          L’objectif étant de pimenter les entraînements, récompenser les plus assidu(e)s, et de permettre le brassage des joueurs selon leur niveau.
        </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          Lorsqu’un joueur décide de rencontrer un autre joueur, il aura un nombre de points d’avance il sera relatif à la différence des deux classement Fédé des joueurs (handicap).
+          Lorsqu’un joueur décide de rencontrer un autre joueur, il aura un nombre de points d’avance (ou de retard) qui sera relatif à la différence des deux classement Fédé des joueurs (handicap).
           Même principe en double (avec une moyenne de points par paire de joueurs) </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-         Si tu gagnes tu marques des points, si tu perds t'en marque moins.
+         Si tu gagnes tu marques des points, si tu perds t'en marque mais moins.
         </div>
       </div>
     </div>
@@ -53,65 +53,55 @@
 </header>
 
 
-<form action="#" class="form-group border mb-5 mt-2" >
+<form action="#" class="form-group border mt-2" >
   <div class="container">
-    <div class="row g-1">
-        <p class="text-center">rentres tes résultats du match : </p>
-        <p class="col-2">joueur 1</p>
-        <div class="form-floating col-2">
-          <input type="text" ID="set1PlayerA" class="form-control" >
-          <label for="set1PlayerA">set 1</label>
+    <p class="text-center">rentres tes résultats du match : </p>
+    <div class="row">
+        <div class="col-10">
+          <div class="row g-1">
+              <p class="col-4 d-flex align-items-center">joueur 1</p>
+              <div class="form-floating col-2">
+                <input type="text" ID="set1PlayerA" class="form-control" >
+                <label for="set1PlayerA">set 1</label>
+              </div>
+              <div class="form-floating col-2">
+                <input type="text" ID="set2PlayerA" class="form-control" >
+                <label for="set2PlayerA">set 2</label>  
+              </div>
+              <div class="form-floating col-2">
+                <input type="text" ID="set3PlayerA" class="form-control" >
+                <label for="set3PlayerA">set 3</label>
+              </div>
+          </div>
+          <div class="row g-1">
+              <p class="col-4 d-flex align-items-center">joueur 2</p>
+              <div class="form-floating col-2">
+                <input type="text" ID="set1PlayerB" class="form-control" >
+                <label for="set1PlayerB">set 1</label>
+              </div>
+              <div class="form-floating col-2">
+                <input type="text" ID="set2PlayerB" class="form-control" >
+                <label for="set2PlayerB">set 2</label>
+              </div>
+              <div class="form-floating col-2">
+                <input type="text" ID="set3PlayerB" class="form-control" >
+                <label for="set3PlayerB">set 3</label>
+              </div>
+          </div>
         </div>
-        <div class="form-floating col-2">
-          <input type="text" ID="set2PlayerA" class="form-control" >
-          <label for="set2PlayerA">set 2</label>
-        </div>
-        <div class="form-floating col-2">
-          <input type="text" ID="set3PlayerA" class="form-control" >
-          <label for="set3PlayerA">set 3</label>
+        <div class="col-2 d-flex pr-2">
+            <button type="submit" class="btn btn-primary" id="bouton">Envoies</button>
         </div>
     </div>
-    <div class="row g-1">
-        <p class="col-2">joueur 2</p>
-        <div class="form-floating col-2">
-          <input type="text" ID="set1PlayerB" class="form-control" >
-          <label for="set1PlayerA">set 1</label>
-        </div>
-        <div class="form-floating col-2">
-          <input type="text" ID="set2PlayerB" class="form-control" >
-          <label for="set2PlayerA">set 2</label>
-        </div>
-        <div class="form-floating col-2">
-          <input type="text" ID="set3PlayerB" class="form-control" >
-          <label for="set3PlayerA">set 3</label>
-        </div>
-      </div>
   </div>
 </form>
 
 
-<!--  
- <form action="get" class="scorematch"> 
-    <label for="set1PlayerA">joueur A</label>
-    <input type="text" id="set1PlayerA" class="set1PlayerA">
-    <input type="submit" value="Submitscore" class="scoresubmit">
-    
-   <label for="set1PlayerB">joueur B</label>
-    <input type="text"  id="set1PlayerB" class="set1PlayerB">
-    <label for="set2playerA">set 2</label>
-    <input type="text"  id="set2playerA" class="set2playerA">
-    <label for="set2playerB">set 2</label>
-    <input type="text"  id="set2playerB" class="set2playerB">
-    <label for="set3playerA">set 3</label>
-    <input type="text"  id="set3playerA" class="set3playerA">
-    <label for="set3playeyB">set 3</label>
-    <input type="text"  id="set3playeyB" class="set3playeyB"> 
-</form>   
+<div id="winner"></div>
 
 
-<p id="winner">salut à tous</p>
 
---> 
+
 <script src="java_badminton.js"></script> 
 <script src="bootstrap_ressources/bootstrap.min.js"></script>
 <script src="bootstrap_ressources/bootstrap.bundle.min.js"></script> 
