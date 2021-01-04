@@ -1,6 +1,6 @@
 // handle match game 
 let button = document.getElementById('bouton')
-function match(){  
+button.addEventListener('click',(event) => { 
     // déclarations et récuperations des points du match
     let set1PlayerA = Number (document.getElementById('set1PlayerA').value);
     let set2PlayerA = Number (document.getElementById('set2PlayerA').value);
@@ -10,10 +10,11 @@ function match(){
     let set3PlayerB = Number (document.getElementById('set3PlayerB').value);
     let nombreSetJoueurA = 0;
     let nombreSetJoueurB = 0;
-    // fonction qui pour savoir qui gagne un set
+    // fonction pour savoir qui gagne un set
         function winSet (pointsA , pointsB){
         if (pointsA > 30 || pointsB > 30){
             alert ('vérifiez vos scores svp');
+            event.stopPropagation();
         }
         else if (((pointsA === 21) && (pointsB <20)) || 
                 ((pointsA - pointsB === 2) && (pointsA > pointsB))|| 
@@ -26,13 +27,13 @@ function match(){
             nombreSetJoueurB += 1;
         }
         else {
-            alert ('vérifiez vos scores svp');
+            alert ('vérifiez vos scores');
+            event.stopPropagation();
             }
         }
     winSet (set1PlayerA,set1PlayerB);
     winSet (set2PlayerA,set2PlayerB); 
-  
- 
+
     // si 2-0, pas de 3éme set
         if(nombreSetJoueurA ===1 && nombreSetJoueurA ===1){
             winSet (set3PlayerA,set3PlayerB);
@@ -43,49 +44,75 @@ function match(){
         else {
             alert ('joueur A a gagné')
         };
-}
-button.addEventListener('click', match)
-
-
+})
 // création des joueurs du championnat
-let classement = ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1'];
-class joueurs {
+let classement= ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
+let allJoueurs = ['--Choisissez un joueur--'];
+class Joueurs {
     constructor(firstname,name,classement,genre){
-        this.name = name,
-        this.firstname = firstname,
-        this.classement = classement,
+        this.name = name
+        this.firstname = firstname
+        this.classement = classement
         this.genre = genre
-    }
+        this.points = 0
+        }
+        showMe(){
+        return (this.name+' '+this.firstname+' '+this.classement);
+        }
+        addMe(){
+            allJoueurs.push(this.showMe());
+        }
 }
-let joueur1 = new joueurs ('James', 'Hendrix',classement[3],'male')
-let joueur2 = new joueurs ('Harry', 'Poter', classement[5], 'male')
+let joueur1 = new Joueurs ('James', 'Hendrix',classement[3],'male')
+joueur1.addMe()
+let joueur2 = new Joueurs ('Harry', 'Poter', classement[5], 'male')
+joueur2.addMe()
+let joueur3 = new Joueurs ('Nico', 'Leroy', classement[4], 'male')
+joueur3.addMe()
+let joueur4 = new Joueurs ('Clément', 'Hollande', classement[10], 'male')
+joueur4.addMe()
 
-
-
-
-//renvoie les joueurs dans le HTML
+//------renvoie les joueurs dans une liste--------------
 let newjoueur1 = document.getElementById('listejoueur1');
-let options = ['--Choisissez le joueur 1--', joueur1.firstname+' '+ joueur1.classement , joueur2.firstname+' '+ joueur2.classement];
-options.forEach(function(element,key) {
+allJoueurs.forEach(function(element,key) {
     newjoueur1[key] = new Option(element,key);
 });
 
 let newjoueur2 = document.getElementById('listejoueur2');
-let options2 = ['--Choisissez le joueur 2--', joueur1.firstname+' '+ joueur1.classement , joueur2.firstname+' '+ joueur2.classement];
-options2.forEach(function(element,key) {
+allJoueurs.forEach(function(element,key) {
     newjoueur2[key] = new Option(element,key);
 });
+/*let listejoueur1 = document.getElementById('listejoueur1');
+let newOption = document.createElement("option")
+newOption.append(allJoueurs);
+listejoueur1.add(newOption);*/
 
-//calcul handicap 
-
-let handicapResultat =  document.getElementById("handicap");
+//-------calcul du handicap -------------------------
+let handicapResultat = document.getElementById("handicap");
 let btnhandicap = document.getElementById('boutonhandicap')
-function calculHandicap (){
-    let handicap = classement.indexOf(joueur1.classement) - classement.indexOf(joueur2.classement);
-    handicapResultat.innerHTML = Math.abs(handicap*3);
+function FindClassement (nb) {
+    let classementUser = allJoueurs[nb].split(' ').slice(2).join('')
+    let isSame = (element) => element == classementUser
+    return (classement.findIndex(isSame))
 }
+newjoueur1.addEventListener('change',()=>{
+    console.log(FindClassement (newjoueur1.value))
+})
 
-btnhandicap.addEventListener('click',calculHandicap);
-
+btnhandicap.addEventListener ('click',() => {
+    let hJ1 =  FindClassement (newjoueur1.value)
+    let hJ2 =  FindClassement (newjoueur2.value)
+    let ecart = Math.abs((hJ1-hJ2)*2)
+    let player1 = allJoueurs[newjoueur1.value].split(' ').slice(1,2).join('')
+    let player2 = allJoueurs[newjoueur2.value].split(' ').slice(1,2).join('')
+        if (hJ2>hJ1){
+    handicapResultat.innerHTML = (player1+' aura '+ ecart+' points d\'avance par set')
+    }
+        else if (hJ1===hJ2){
+    handicapResultat.innerHTML = ('pas de points d\'avance......même classement!!!')
+    }   else {
+    handicapResultat.innerHTML = (player2+' aura '+ ecart+' points d\'avance par set')
+    }
+})
 
 

@@ -33,7 +33,7 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          Lorsqu’un joueur décide de rencontrer un autre joueur, il aura un nombre de points d’avance (ou de retard) qui sera relatif à la différence des deux classement Fédé des joueurs (handicap).
+          Lorsqu’un joueur décide de rencontrer un autre joueur, il aura un nombre de points d’avance (ou de retard) qui sera relatif à la différence des deux classement Fédé des joueurs (2 points par classement d'écart).
           Même principe en double (avec une moyenne de points par paire de joueurs) </div>
       </div>
     </div>
@@ -52,17 +52,32 @@
   </div>
 </header>
 <!-- choix des joueurs -->
-<div class="row mt-5">
-  <div class="">cacul du handicap :</div>
-<select id="listejoueur1">
-</select>
-<select id="listejoueur2">
-</select>
-<button id="boutonhandicap" type="button">calculer le handicap</button>
-<div id="handicap"></div>
+
+<div class="card mt-5">
+  <div class="container-fluid">
+    <div class="row">
+      <h3 class=" col-12 card-title text-center ">cacul du handicap :</h3>
+      <div class="col-6">
+        <select class="form-select"id="listejoueur1">
+        </select>
+      </div>
+      <div class="col-6">
+        <select class="form-select"id="listejoueur2">
+        </select>
+      </div>
+      <div class="col-6 text-center mt-2 mb-2">
+        <button class="btn btn-info" id="boutonhandicap" type="button">calculer le handicap</button>
+      </div>
+      <div class="col-6 d-flex align-items-center">
+        <div id="handicap">ton handicap sera de</div> 
+      </div>
+    </div>
+   
+      
+   
+  </div>
 </div>
-
-
+  
 <!-- résultats du match -->
 <form action="#" class="form-group border mt-5" >
   <div class="container">
@@ -107,6 +122,7 @@
   </div>
 </form>
 
+<script src="jquery-3.5.1.min.js"></script>
 <script src="java_badminton.js"></script> 
 <script src="bootstrap_ressources/bootstrap.min.js"></script>
 <script src="bootstrap_ressources/bootstrap.bundle.min.js"></script> 
