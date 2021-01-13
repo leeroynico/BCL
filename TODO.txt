@@ -1,6 +1,6 @@
-pb bouton marge 
+pb bouton marge responsive
 
-pb troisième set 
+pb troisième set / propagation
 
  alert qui revient 2 fois si on se trompe. 
 

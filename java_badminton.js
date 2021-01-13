@@ -1,51 +1,4 @@
-// handle match game 
-let button = document.getElementById('bouton')
-button.addEventListener('click',(event) => { 
-    // déclarations et récuperations des points du match
-    let set1PlayerA = Number (document.getElementById('set1PlayerA').value);
-    let set2PlayerA = Number (document.getElementById('set2PlayerA').value);
-    let set3PlayerA = Number (document.getElementById('set3PlayerA').value);
-    let set1PlayerB = Number (document.getElementById('set1PlayerB').value);
-    let set2PlayerB = Number (document.getElementById('set2PlayerB').value);
-    let set3PlayerB = Number (document.getElementById('set3PlayerB').value);
-    let nombreSetJoueurA = 0;
-    let nombreSetJoueurB = 0;
-    // fonction pour savoir qui gagne un set
-        function winSet (pointsA , pointsB){
-        if (pointsA > 30 || pointsB > 30){
-            alert ('vérifiez vos scores svp');
-            event.stopPropagation();
-        }
-        else if (((pointsA === 21) && (pointsB <20)) || 
-                ((pointsA - pointsB === 2) && (pointsA > pointsB))|| 
-                ((pointsA === 30) && (pointsB === 29))){
-            nombreSetJoueurA += 1;
-        }  
-        else if (((pointsB === 21) && (pointsA <20)) || 
-                ((pointsB - pointsA === 2) && (pointsB > pointsA))|| 
-                ((pointsB === 30) && (pointsA === 29))){
-            nombreSetJoueurB += 1;
-        }
-        else {
-            alert ('vérifiez vos scores');
-            event.stopPropagation();
-            }
-        }
-    winSet (set1PlayerA,set1PlayerB);
-    winSet (set2PlayerA,set2PlayerB); 
-
-    // si 2-0, pas de 3éme set
-        if(nombreSetJoueurA ===1 && nombreSetJoueurA ===1){
-            winSet (set3PlayerA,set3PlayerB);
-        }
-        else if(nombreSetJoueurB > nombreSetJoueurA){
-            alert ('joueur B a gagné')
-        }
-        else {
-            alert ('joueur A a gagné')
-        };
-})
-// création des joueurs du championnat
+//------ création des joueurs du championnat-------------
 let classement= ['loisirs','P12','P11','P10','D9','D8','D7','R6','R5','R4','N3','N2','N1']
 let allJoueurs = ['--Choisissez un joueur--'];
 class Joueurs {
@@ -56,11 +9,8 @@ class Joueurs {
         this.genre = genre
         this.points = 0
         }
-        showMe(){
-        return (this.name+' '+this.firstname+' '+this.classement);
-        }
         addMe(){
-            allJoueurs.push(this.showMe());
+            allJoueurs.push(this.name+' '+this.firstname+' '+this.classement);
         }
 }
 let joueur1 = new Joueurs ('James', 'Hendrix',classement[3],'male')
@@ -72,7 +22,7 @@ joueur3.addMe()
 let joueur4 = new Joueurs ('Clément', 'Hollande', classement[10], 'male')
 joueur4.addMe()
 
-//------renvoie les joueurs dans une liste--------------
+//------renvoie les joueurs dans une liste HTML--------------
 let newjoueur1 = document.getElementById('listejoueur1');
 allJoueurs.forEach(function(element,key) {
     newjoueur1[key] = new Option(element,key);
@@ -115,4 +65,69 @@ btnhandicap.addEventListener ('click',() => {
     }
 })
 
+//------ handle match game + championnat------
+let button = document.getElementById('bouton')
+button.addEventListener('click',(event) => { 
+    //------ déclarations et récuperations des points du match------
+    let set1PlayerA = Number (document.getElementById('set1PlayerA').value);
+    let set2PlayerA = Number (document.getElementById('set2PlayerA').value);
+    let set3PlayerA = Number (document.getElementById('set3PlayerA').value);
+    let set1PlayerB = Number (document.getElementById('set1PlayerB').value);
+    let set2PlayerB = Number (document.getElementById('set2PlayerB').value);
+    let set3PlayerB = Number (document.getElementById('set3PlayerB').value);
+    let nombreSetJoueurA = 0;
+    let nombreSetJoueurB = 0;
+    //------ fonction pour savoir qui gagne un set------
+        function winSet (pointsA , pointsB){
+        if (pointsA > 30 || pointsB > 30){
+            alert ('vérifiez vos scores svp');
+        }
+        else if (((pointsA === 21) && (pointsB <20)) || 
+                ((pointsA - pointsB === 2) && (pointsA > pointsB))|| 
+                ((pointsA === 30) && (pointsB === 29))){
+            nombreSetJoueurA += 1;
+        }  
+        else if (((pointsB === 21) && (pointsA <20)) || 
+                ((pointsB - pointsA === 2) && (pointsB > pointsA))|| 
+                ((pointsB === 30) && (pointsA === 29))){
+            nombreSetJoueurB += 1;
+        }
+        else {
+            alert ('vérifiez vos scores');
+            }
+        }
+    winSet (set1PlayerA,set1PlayerB);
+    
 
+     switch (true){
+        case nombreSetJoueurA === 0 && nombreSetJoueurB === 0 :
+            break;
+        case nombreSetJoueurA === 1 || nombreSetJoueurB === 1 :
+            winSet (set2PlayerA,set2PlayerB); 
+            break;
+        case nombreSetJoueurA === 1 && nombreSetJoueurB === 1 :
+            winSet (set3PlayerA,set3PlayerB); 
+        case nombreSetJoueurA > nombreSetJoueurB :
+            alert ('Joueur A a gagné')
+            break;
+        case nombreSetJoueurA < nombreSetJoueurB :
+            alert ('Joueur B a gagné')
+            break;
+        default : 
+            alert ('vérifiez les règles'); 
+            break;
+     }
+  
+
+    /*
+        if(nombreSetJoueurA ===1 && nombreSetJoueurA ===1){
+            winSet (set3PlayerA,set3PlayerB);
+        }
+        else if(nombreSetJoueurB > nombreSetJoueurA){
+            alert ('joueur B a gagné')
+        }
+        else {
+            alert ('joueur A a gagné')
+        };
+    */
+})

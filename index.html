@@ -6,7 +6,7 @@
     <title>BAD lens</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap_ressources/bootstrap.min.css">
-
+ 
     
 </head>
 <body class="container fluid">
@@ -40,7 +40,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Le calcul des points
+          Le calcul des points pour le championnat
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -80,52 +80,55 @@
   
 <!-- résultats du match -->
 <form action="#" class="form-group border mt-5" >
-  <div class="container">
+  <div class="container-fluid">
     <p class="text-center">rentres tes résultats du match : </p>
-    <div class="row">
-        <div class="col-10">
-          <div class="row g-1">
-              <p class="col-4 d-flex align-items-center">joueur 1</p>
-              <div class="form-floating col-2">
+    <div class="row gx-1">
+        <div class="col-md-10">
+          <div class="row g-1 d-flex justify-content-between">
+              <div class="col-3 d-flex align-items-center">joueur 1
+              </div>
+              <div class="form-floating col-3">
                 <input type="text" ID="set1PlayerA" class="form-control" >
                 <label for="set1PlayerA">set 1</label>
               </div>
-              <div class="form-floating col-2">
+              <div class="form-floating col-3">
                 <input type="text" ID="set2PlayerA" class="form-control" >
                 <label for="set2PlayerA">set 2</label>  
               </div>
-              <div class="form-floating col-2">
+              <div class="form-floating col-3">
                 <input type="text" ID="set3PlayerA" class="form-control" >
                 <label for="set3PlayerA">set 3</label>
               </div>
           </div>
-          <div class="row g-1">
-              <p class="col-4 d-flex align-items-center">joueur 2</p>
-              <div class="form-floating col-2">
+          <div class="row g-1 d-flex justify-content-between">
+              <p class="col-3 d-flex align-items-center" id="joueur2">joueur 2</p>
+              <div class="form-floating col-3">
                 <input type="text" ID="set1PlayerB" class="form-control" >
                 <label for="set1PlayerB">set 1</label>
               </div>
-              <div class="form-floating col-2">
+              <div class="form-floating col-3">
                 <input type="text" ID="set2PlayerB" class="form-control" >
                 <label for="set2PlayerB">set 2</label>
               </div>
-              <div class="form-floating col-2">
+              <div class="form-floating col-3">
                 <input type="text" ID="set3PlayerB" class="form-control" >
                 <label for="set3PlayerB">set 3</label>
               </div>
           </div>
         </div>
-        <div class="col-2 d-flex">
+        <div class="col-md-2 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary" id="bouton">Envoies les scores</button>
         </div>
     </div>
   </div>
 </form>
 
+<div class="championat"></div>
+
 <script src="jquery-3.5.1.min.js"></script>
-<script src="java_badminton.js"></script> 
 <script src="bootstrap_ressources/bootstrap.min.js"></script>
 <script src="bootstrap_ressources/bootstrap.bundle.min.js"></script> 
+<script src="java_badminton.js"></script> 
 </body>
 
 </html>
